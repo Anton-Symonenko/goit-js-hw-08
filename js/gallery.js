@@ -85,9 +85,15 @@ const markup = images.map(
 gallery.insertAdjacentHTML("beforeend", markup);
 
 gallery.addEventListener('click', (evt) => {
-    if (evt.target.nodeName === 'IMG') {
-        evt.preventDefault();
+    if (evt.target.nodeName !== 'IMG') {
+      return;  
     }
-});
+        evt.preventDefault();
+    
+
+const largeImageURL = evt.target.dataset.source;
+
+  console.log(largeImageURL);
+});   
 
 
